@@ -1,12 +1,11 @@
 package hu.fatalaa.bingapi.models.submodels;
 
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementArray;
 
 /**
  * Created by tmolnar on 9/27/14.
  */
-@ElementArray
+@Element
 public class TranslationMatch {
 
     @Element(name = "Count")
