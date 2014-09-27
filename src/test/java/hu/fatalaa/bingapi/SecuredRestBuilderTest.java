@@ -1,10 +1,10 @@
 package hu.fatalaa.bingapi;
 
+import hu.fatalaa.bingapi.models.GetTranslationsResponse;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import retrofit.RestAdapter;
-import retrofit.client.Response;
 import retrofit.converter.SimpleXMLConverter;
 
 /**
@@ -12,8 +12,8 @@ import retrofit.converter.SimpleXMLConverter;
  */
 public class SecuredRestBuilderTest {
     private BingService bingService;
-    private final String clientId = "CLIENT-ID-HERE";
-    private final String clientSecret = "CLIENT-SECRET HERE";
+    private final String clientId = "";
+    private final String clientSecret = "";
 
     @Before
     public void setUp() {
@@ -27,9 +27,13 @@ public class SecuredRestBuilderTest {
                                               .create(BingService.class);
     }
 
-    @Test
-    public void testSomething() {
-        Response response = bingService.translate("cica", "hu", "en");
+    @Test public void testTranslate() throws Exception {
+        String response = bingService.translate("cica", "hu", "en", "text/plain");
+        Assert.assertEquals("kitten", response);
+    }
+
+    @Test public void testGetTranslations() throws Exception {
+        GetTranslationsResponse response = bingService.getTranslations("cica", "hu", "en", 50, null);
         Assert.assertNotNull(response);
     }
 }
