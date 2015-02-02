@@ -8,6 +8,9 @@ import org.simpleframework.xml.Element;
 @Element
 public class TranslationMatch {
 
+    @Element(name = "Error", required = false)
+    private String error;
+
     @Element(name = "Count")
     private int count;
 
@@ -22,6 +25,14 @@ public class TranslationMatch {
 
     @Element(name = "TranslatedText")
     private String translatedText;
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
     public int getCount() {
         return count;

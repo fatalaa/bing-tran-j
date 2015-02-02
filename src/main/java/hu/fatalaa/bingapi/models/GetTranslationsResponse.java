@@ -1,10 +1,7 @@
 package hu.fatalaa.bingapi.models;
 
 import hu.fatalaa.bingapi.models.submodels.Translations;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Namespace;
-import org.simpleframework.xml.NamespaceList;
-import org.simpleframework.xml.Root;
+import org.simpleframework.xml.*;
 
 /**
  * Created by tmolnar on 9/27/14.
@@ -21,6 +18,6 @@ public class GetTranslationsResponse {
     @Element(name = "State", required = false)
     private String state;
 
-    @Element(name = "Translations")
+    @ElementArray(name = "Translations")
     private Translations translations;
 }
